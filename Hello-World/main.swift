@@ -8,12 +8,83 @@
 
 import Foundation
 
+func returnFifteen() -> Int
+{
+    var y = 10
+    
+    func add()
+    {
+        y += 5
+    }
+    add()
+    
+    return y
+}
+print(returnFifteen())
+
+//---------------------------------------------------------------
+func makeIncrement() -> ((Int) -> Int)
+{
+    func addOne(number: Int) -> Int
+    {
+        return 1 + number
+    }
+    return addOne
+}
+
+var increment = makeIncrement()
+print(increment(7))
+
+//---------------------------------------------------------------
+
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool
+{
+    for item in list
+    {
+        if condition(item)
+        {
+            return true
+        }
+    }
+    return false
+}
+
+func lessThanTen(number: Int) -> Bool
+{
+    return number < 10
+}
+
+var numbers = [20, 19, 7, 12]
+
+print(hasAnyMatches(list: numbers, condition: lessThanTen))
+
+//---------------------------------------------------------------
+
+var new_result = numbers.map({ (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+print(new_result)
+
+var otherNumbers = [1, 4, 3, 5, 8, 9, 6]
+
+var newStuff = otherNumbers.map({ (number: Int) -> Int in
+    var results = 0
+    
+    if number % 2 == 0
+    {
+        results = 3 * number
+    }
+    return results
+})
+
+print(newStuff)
 //---------------------------------------------------------------
 func greet(_ person: String, on day: Int) -> String {
     return "Hello \(person) today is \(day)"
 }
 print(greet("Osnaldy", on: 13))
-
+//-------------------------------------------------------------
 func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int)
 {
     var min = scores[0]
