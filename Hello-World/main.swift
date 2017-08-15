@@ -8,6 +8,79 @@
 
 import Foundation
 
+//---------------------------------------------------------------
+func greet(_ person: String, on day: Int) -> String {
+    return "Hello \(person) today is \(day)"
+}
+print(greet("Osnaldy", on: 13))
+
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int)
+{
+    var min = scores[0]
+    
+    var max = scores[0]
+    
+    var sum = 0
+    
+    for score in scores
+    {
+        if score > max
+        {
+            max = score
+        }
+        else if score < min{
+            
+            min = score
+        }
+        
+        sum += score
+    }
+    
+    return (min, max, sum)
+}
+
+let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
+print(statistics)
+print(statistics.sum)
+print(statistics.2)
+
+//---------------------------------------------------------------
+var total: Int = 0
+
+for i in 0..<4
+{
+    total += i
+}
+print(total)
+
+//---------------------------------------------------------------
+let interestingNumbers = [
+
+    "Prime": [2, 3, 5, 7, 11, 13],
+    
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    
+    "Square": [1, 4, 9, 16, 25],
+]
+
+var largest = 0
+var numberType = ""
+
+for (kind, numbers) in interestingNumbers
+{
+    print(kind, numbers)
+    for number in numbers
+    {
+        if number > largest
+        {
+            numberType = kind
+            largest = number
+        }
+    }
+}
+print(numberType, largest)
+//---------------------------------------------------------------
+
 let vegetable = "red pepper"
 
 switch vegetable {
@@ -68,11 +141,3 @@ else{
 }
 print(greetings)
 //---------------------------------------------------------------
-
-
-
-
-
-
-
-
