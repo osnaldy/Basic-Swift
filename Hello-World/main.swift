@@ -8,6 +8,30 @@
 
 import Foundation
 
+class Shape
+{
+    var numberOfSides = 0
+    let numberOfObjects = 2
+    
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides."
+    }
+    
+    func simpleObjects(number: Int) -> String {
+        return "There are \(numberOfObjects) objects"
+    }
+}
+
+var shape = Shape()
+
+shape.numberOfSides = 7
+var shapeDescription = shape.simpleDescription()
+print(shapeDescription)
+
+var shapeObjects = shape.simpleObjects(number: 2)
+print(shapeObjects)
+//---------------------------------------------------------------
+
 func returnFifteen() -> Int
 {
     var y = 10
