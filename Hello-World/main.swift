@@ -1,11 +1,10 @@
-//
-//  main.swift
-//  Hello-World
-//
-//  Created by Osnaldy Vasquez on 8/14/17.
-//  Copyright © 2017 Osnaldy Vasquez. All rights reserved.
-//
-
+////
+////  main.swift
+////  Hello-World
+////
+////  Created by Osnaldy Vasquez on 8/14/17.
+////  Copyright © 2017 Osnaldy Vasquez. All rights reserved.
+////
 import Foundation
 
 class nameShape {
@@ -21,6 +20,54 @@ class nameShape {
     }
     
 }
+class Square: nameShape
+{
+    var sideLength: Double
+    
+    init(sideLength: Double, name: String)
+    {
+        self.sideLength = sideLength
+        super.init(name: name)
+        
+        numberOfSides = 4
+    }
+    
+    func area() -> Double {
+        return sideLength * sideLength
+    }
+    
+    override func simpleDescription() -> String {
+        return "A square with side of length \(sideLength)"
+    }
+}
+
+class Circle: nameShape {
+    
+    var radius: Double
+    
+    init(radius: Double, name: String) {
+        self.radius = radius
+        super.init(name: name)
+        
+    }
+    
+    func area() -> Double {
+        return Double.pi * pow(radius, 2.0)
+    }
+    
+    override func simpleDescription() -> String {
+        return "A circle with the radius of \(radius)"
+    }
+}
+
+let test = Square(sideLength: 5.2, name: "My test Square")
+print(test.area())
+print(test.simpleDescription())
+
+let test1 = Circle(radius: 7.3, name: "My Test Circle")
+print(test1.area())
+
+
 var name = nameShape(name: "Osnaldy")
 name.numberOfSides = 10
 print(name.simpleDescription())
