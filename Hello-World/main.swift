@@ -8,6 +8,23 @@
 
 import Foundation
 
+class nameShape {
+    var numberOfSides: Int = 0
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides"
+    }
+    
+}
+var name = nameShape(name: "Osnaldy")
+name.numberOfSides = 10
+print(name.simpleDescription())
+
 class Shape
 {
     var numberOfSides = 0
