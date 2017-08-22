@@ -1,12 +1,43 @@
+////
+////  main.swift
+////  Hello-World
+////
+////  Created by Osnaldy Vasquez on 8/14/17.
+////  Copyright © 2017 Osnaldy Vasquez. All rights reserved.
+////
 //
-//  main.swift
-//  Hello-World
-//
-//  Created by Osnaldy Vasquez on 8/14/17.
-//  Copyright © 2017 Osnaldy Vasquez. All rights reserved.
-//
-
 import Foundation
+
+//---------------------------------------------------------------
+
+enum ServerResponse {
+    case result(String, String)
+    case failure(String)
+    case smtp(String)
+    
+}
+
+let success = ServerResponse.result("6:00 am", "8:09 pm")
+
+let failure = ServerResponse.failure("Out of Cheese")
+
+let smtp = ServerResponse.smtp("Simple Message Transfer Protocol")
+
+switch smtp {
+    
+case let .result(sunrise, sunset):
+    
+    print("Sunrise is at \(sunrise) and Sunset is at \(sunset).")
+    
+case let .failure(message):
+    
+    print("Failure.... \(message)")
+    
+case let .smtp(message):
+    
+    print("Something else went wrong..... \(message)")
+}
+
 
 //---------------------------------------------------------------
 
@@ -47,6 +78,7 @@ let ace = Rank.ace
 let aceRawValue = ace.rawValue
 print(aceRawValue)
 
+//---------------------------------------------------------------
 
 enum Suits {
     case spades, hearts, diamonds, clubs
