@@ -8,6 +8,46 @@
 
 import Foundation
 
+//---------------------------------------------------------------
+
+enum Rank: Int {
+    
+    case ace = 1
+    case two, three, four, five, six, seven, eight, nine, ten
+    case jack, queen, king
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .ace:
+            return "Ace"
+            
+        case .jack:
+            return "Jack"
+        case .queen:
+            return "Queen"
+        case .king:
+            return "King"
+        case .ten:
+            return "Ten"
+        default:
+            return String(self.rawValue)
+        }
+    }
+}
+
+//---------------------------------------------------------------
+func compareRank(num1: Rank, num2: Rank) -> Bool
+{
+    return num1.rawValue == num2.rawValue
+}
+
+print(compareRank(num1: Rank.eight, num2: Rank.queen))
+
+let ace = Rank.ace
+let aceRawValue = ace.rawValue
+print(aceRawValue)
+
+//---------------------------------------------------------------
 class nameShape {
     var numberOfSides: Int = 0
     var name: String
@@ -21,6 +61,8 @@ class nameShape {
     }
     
 }
+
+//---------------------------------------------------------------
 class Square: nameShape
 {
     var sideLength: Double
@@ -42,6 +84,7 @@ class Square: nameShape
     }
 }
 
+//---------------------------------------------------------------
 class Circle: nameShape {
     
     var radius: Double
@@ -60,7 +103,7 @@ class Circle: nameShape {
         return "A circle with the radius of \(radius)"
     }
 }
-
+//---------------------------------------------------------------
 class EquilateralTriangle: nameShape
 {
     var sideLength: Double = 0.0
@@ -87,6 +130,7 @@ class EquilateralTriangle: nameShape
     }
 }
 
+//---------------------------------------------------------------
 class TriangleAndSquare {
     var triangle: EquilateralTriangle {
         willSet {
@@ -114,8 +158,6 @@ print(triangleAndSquare.triangle.sideLength)
 triangleAndSquare.square = Square(sideLength: 50, name: "Larger Square")
 print(triangleAndSquare.triangle.sideLength)
 
-
-
 var triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
 print(triangle.perimeter)
 triangle.perimeter = 9.9
@@ -133,6 +175,7 @@ var name = nameShape(name: "Osnaldy")
 name.numberOfSides = 10
 print(name.simpleDescription())
 
+//---------------------------------------------------------------
 class Shape
 {
     var numberOfSides = 0
