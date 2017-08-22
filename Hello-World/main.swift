@@ -47,6 +47,42 @@ let ace = Rank.ace
 let aceRawValue = ace.rawValue
 print(aceRawValue)
 
+
+enum Suits {
+    case spades, hearts, diamonds, clubs
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .spades:
+            return "Spades"
+        case .hearts:
+            return "Hearts"
+        case .diamonds:
+            return "Diamonds"
+        case .clubs:
+            return "Clubs"
+        }
+    }
+    
+    func color() -> String {
+        switch self {
+        case .spades:
+            return "Black"
+        case .hearts:
+            return "Red"
+        case .diamonds:
+            return "Red"
+        case .clubs:
+            return "Black"
+        }
+    }
+}
+
+let hearts = Suits.hearts
+let heartsDescription = hearts.simpleDescription()
+let heartsColor = hearts.color()
+print(heartsDescription, heartsColor)
+
 //---------------------------------------------------------------
 class nameShape {
     var numberOfSides: Int = 0
