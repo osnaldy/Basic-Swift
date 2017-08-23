@@ -74,39 +74,72 @@ struct Card {
     func simpleDescription() -> String {
         return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
     }
+    
+}
+
+func createDeck() -> [Card] {
+    
+    var deck = [Card]()
+    
+    let ranks = [Rank.ace, Rank.two, Rank.three, Rank.four, Rank.five, Rank.six, Rank.seven, Rank.eight, Rank.nine, Rank.ten, Rank.jack, Rank.queen, Rank.king]
+    
+    let suits = [Suits.spades, Suits.hearts, Suits.diamonds, Suits.clubs]
+    
+    
+    for suit in suits {
+        
+        for rank in ranks {
+            deck.append(Card(rank: rank, suit: suit))
+        }
+    }
+    
+    return deck
+    
+}
+
+func printDeck(deck: [Card])
+{
+    for card in deck {
+        print(card.simpleDescription())
+    }
 }
 
 let threeOfSpades = Card(rank: .three, suit: .spades)
 print(threeOfSpades.simpleDescription())
 
-//---------------------------------------------------------------
-enum ServerResponse {
-    case result(String, String)
-    case failure(String)
-    case smtp(String)
-    
-}
+var newVar = createDeck()
 
-let success = ServerResponse.result("6:00 am", "8:09 pm")
+printDeck(deck: newVar)
 
-let failure = ServerResponse.failure("Out of Cheese")
 
-let smtp = ServerResponse.smtp("Simple Message Transfer Protocol")
-
-switch smtp {
-    
-case let .result(sunrise, sunset):
-    
-    print("Sunrise is at \(sunrise) and Sunset is at \(sunset).")
-    
-case let .failure(message):
-    
-    print("Failure.... \(message)")
-    
-case let .smtp(message):
-    
-    print("Something else went wrong..... \(message)")
-}
+////---------------------------------------------------------------
+//enum ServerResponse {
+//    case result(String, String)
+//    case failure(String)
+//    case smtp(String)
+//    
+//}
+//
+//let success = ServerResponse.result("6:00 am", "8:09 pm")
+//
+//let failure = ServerResponse.failure("Out of Cheese")
+//
+//let smtp = ServerResponse.smtp("Simple Message Transfer Protocol")
+//
+//switch smtp {
+//    
+//case let .result(sunrise, sunset):
+//    
+//    print("Sunrise is at \(sunrise) and Sunset is at \(sunset).")
+//    
+//case let .failure(message):
+//    
+//    print("Failure.... \(message)")
+//    
+//case let .smtp(message):
+//    
+//    print("Something else went wrong..... \(message)")
+//}
 
 //---------------------------------------------------------------
 func compareRank(num1: Rank, num2: Rank) -> Bool
