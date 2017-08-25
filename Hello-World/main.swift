@@ -122,6 +122,78 @@ protocol ExampleProtocol {
     mutating func adjust()
 }
 
+class SimpleClass: ExampleProtocol {
+    var simpleDescription: String = "A Very simple class"
+    var anotherProperty: Int = 69105
+    
+    func adjust() {
+        simpleDescription += "   Now 100% adjusted."
+    }
+}
+
+var a = SimpleClass()
+
+a.adjust()
+
+let aDescription = a.simpleDescription
+
+print(aDescription)
+
+struct SimpleStructure: ExampleProtocol {
+    var simpleDescription: String = "A Simple structure"
+    
+    mutating func adjust() {
+        simpleDescription += "  (adjusted)"
+    }
+}
+
+var b = SimpleStructure()
+
+b.adjust()
+
+let bDescription = b.simpleDescription
+
+print(bDescription)
+
+enum SimpleEnum : ExampleProtocol {
+
+    case Adjusted, Base
+    
+    var simpleDescription: String
+    {
+        switch self {
+        case .Adjusted:
+            return "This is the adjusted Size"
+        case .Base:
+            return "This is a Base case"
+    }
+        }
+    
+    mutating func adjust() {
+        switch self {
+        case .Adjusted:
+            self = .Adjusted
+            
+        case .Base:
+            
+            self = .Base
+        }
+    }
+}
+
+print()
+var c = SimpleEnum.Adjusted
+var cDescription = c.simpleDescription
+print(cDescription)
+
+c.adjust()
+print(c.simpleDescription)
+
+var d = SimpleEnum.Base
+print(d.simpleDescription)
+
+
+
 //---------------------------------------------------------------
 enum ServerResponse {
     case result(String, String)
