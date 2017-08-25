@@ -1,10 +1,10 @@
-////
-////  main.swift
-////  Hello-World
-////
-////  Created by Osnaldy Vasquez on 8/14/17.
-////  Copyright © 2017 Osnaldy Vasquez. All rights reserved.
-////
+//
+//  main.swift
+//  Hello-World
+//
+//  Created by Osnaldy Vasquez on 8/14/17.
+//  Copyright © 2017 Osnaldy Vasquez. All rights reserved.
+//
 //
 import Foundation
 
@@ -115,9 +115,14 @@ let convertedRank = Rank(rawValue: 1)
 
 print(convertedRank?.simpleDescription())
 
+//---------------------------------------------------------------
 
+protocol ExampleProtocol {
+    var simpleDescription: String { get }
+    mutating func adjust()
+}
 
-////---------------------------------------------------------------
+//---------------------------------------------------------------
 enum ServerResponse {
     case result(String, String)
     case failure(String)
@@ -164,7 +169,6 @@ let hearts = Suits.hearts
 let heartsDescription = hearts.simpleDescription()
 let heartsColor = hearts.color()
 print(heartsDescription, heartsColor)
-//
 
 //---------------------------------------------------------------
 class nameShape {
