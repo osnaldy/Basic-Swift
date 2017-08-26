@@ -204,6 +204,10 @@ extension Double
     }
 }
 
+let protocolValue: ExampleProtocol = a
+print(protocolValue.simpleDescription)
+
+
 let exampleAbsoluteValue: Double = -40
 print(exampleAbsoluteValue.absoluteValue)
 
