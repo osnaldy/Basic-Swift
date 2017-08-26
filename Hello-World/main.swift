@@ -181,6 +181,32 @@ enum SimpleEnum : ExampleProtocol {
     }
 }
 
+extension Int: ExampleProtocol
+{
+    var simpleDescription: String {
+        return "The number \(self)"
+    }
+    
+    mutating func adjust() {
+        self += 42
+    }
+    
+}
+
+print(7.simpleDescription)
+
+
+extension Double
+{
+    var absoluteValue: Double
+    {
+       return abs(self)
+    }
+}
+
+let exampleAbsoluteValue: Double = -40
+print(exampleAbsoluteValue.absoluteValue)
+
 print()
 var c = SimpleEnum.Adjusted
 var cDescription = c.simpleDescription
