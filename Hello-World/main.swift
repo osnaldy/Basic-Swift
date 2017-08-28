@@ -192,8 +192,11 @@ extension Int: ExampleProtocol
     }
     
 }
+var numvar = 7
+print(numvar.adjust())
 
-print(7.simpleDescription)
+
+print(numvar.simpleDescription)
 
 
 extension Double
